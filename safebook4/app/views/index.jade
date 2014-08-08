@@ -1,0 +1,34 @@
+doctype html5
+head
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+
+  link(rel="stylesheet", href="bootstrap.css")
+  link(rel="stylesheet", href="index.css")
+
+  script(src="dependencies.js")
+  script(src="safebook.js")
+
+  script#auth_tpl(type="text/template")
+    include inc/auth
+
+  script#home_tpl(type="text/template")
+    include inc/home
+
+  script#users_tpl(type="text/template")
+    include inc/users
+  script#user_tpl(type="text/template")
+    include inc/user
+
+  script#keys_tpl(type="text/template")
+    include inc/keys
+  script#key_tpl(type="text/template")
+    include inc/key
+
+  script#messages_tpl(type="text/template")
+    include inc/messages
+  script#message_tpl(type="text/template")
+    include inc/message
+
+body
+  #content.container-fluid
+    h2.text-center Not loaded yet

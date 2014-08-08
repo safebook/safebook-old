@@ -1,0 +1,14 @@
+div.form-horizontal.center-block(role='form')#login-form
+  .form-group
+    label.col-sm-2(for='alias_input') Alias
+    .col-sm-10
+      input#pseudo_input.form-control(placeholder='Enter alias')
+  .form-group
+    label.col-sm-2(for='password_input') Password
+    .col-sm-10
+      input#password_input.form-control(type='password', placeholder='Password')
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      button.btn.btn-default(type='submit')#signup_btn Sign Up
+      button.btn.btn-default(type='submit')#signin_btn Sign In
+      button.btn.btn-default(type='submit')#test_btn Test
