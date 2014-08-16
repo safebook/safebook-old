@@ -1,0 +1,267 @@
+html{
+	height: 100%;
+	background-color: #f2faf4;
+	font-family : "Verdana", Helvetica, Arial, sans-serif;
+}
+
+body{
+	height: 100%;
+	width: 900px;
+	margin: auto;
+}
+
+header{
+	background-color: #4abb5b;
+	position: absolute;
+	width:  100%;
+	left: 0;
+	border-bottom: 2px solid #2c9950;
+	z-index: 1;
+}
+
+#center{
+	height:  75px;
+	width: 900px;
+	margin: auto;
+}
+
+.logo-safebook{
+	position: relative;
+	top: 4px;
+	display: inline-block;
+	vertical-align: middle;
+	left: 20px;
+}
+
+.avancement{
+	position: relative;
+	top: 20px;
+	left: 300px;
+}
+
+#fleche{
+	position: relative;
+	top: 49px;
+}
+
+.pos_1{
+	left: 178px;
+}
+
+.pos_2{
+	left: 211px;
+}
+
+.pos_3{
+	left: 246px;
+}
+
+.strut{
+	height: 100%;
+	width: 0px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.body {
+	width: 100%;
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	top: 40px;
+}
+
+#content {
+	width: 750px;
+	margin: auto;
+	background-color: rgba(73, 187, 91, 0.16);
+	border-radius: 15px;
+	border: 2px solid #2c9950;
+	color: #2c9950;
+	padding-bottom: 20px;
+	height: 420px;
+}
+
+h2{
+	font-weight: normal;
+	border: 2px solid #2c9950;
+	border-top: none;
+	width: 250px;
+	border-radius: 0px 0px 15px 15px;
+	background-color: #f2faf4;
+	position: relative;
+	text-align: center;
+	font-size: 18px;
+	color: #4abb5b;
+	margin: auto auto 34px;
+	top: -2px;
+	padding-bottom: 4px;
+}
+
+.thisis, input, .description{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.thisis{
+	font-size: 15px;
+	width: 130px;
+	text-align: right;
+	margin-right: 15px;
+}
+
+#content input{
+	width: 180px;
+	height: 20px;
+	border-radius:  15px;
+	border: 2px solid #2c9950;
+	outline: none;
+	padding: 3px 3px 3px 10px;
+	color: #2c9950;
+	font-size: 13px;
+	background-color: #f2faf4;
+}
+
+#content input:focus{
+	-moz-box-shadow: 0 0 6px #4abb5b inset;
+	-webkit-box-shadow: 0 0 6px #4abb5b inset;
+	box-shadow: 0 0 6px #4abb5b inset;
+}
+#content .invalid {
+	border: 2px solid #ed0000;
+	color: #ed0000;
+}
+
+.description{
+	width: 370px;
+	vertical-align: top;
+	padding-left: 20px;
+	margin-bottom: 25px;
+	font-size: 13px;
+}
+
+#notify{
+	float: right;
+	position: relative;
+	right: 140px;
+	font-size: 13px;
+	color: #da0808;
+	text-align: right;
+	top: 3px;
+}
+
+.next{
+	text-decoration: none;
+	position: absolute;
+	display: block;
+	color: #f2faf4;
+	font-size: 15px;
+	background-color: #2c9950;
+	width: 120px;
+	text-align: center;
+	border-radius: 15px 15px 15px 15px;
+	padding: 3px 3px 4px;
+	bottom: 10px;
+	right: 400px;
+}
+
+/*Si mauvais entrée */
+
+
+/*Si mauvais entrée dans le formulaire, possibilité de "griser" le suivant*/
+/*.next{
+	opacity: 0.5;
+}*/
+
+#explanation{
+	font-size: 13px;
+	text-align: justify;
+}
+
+#n2{
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+#import{
+	width: 580px;
+	height: 110px;
+	margin: 20px auto auto;
+	border: 2px solid #2c9950;
+	border-radius: 50px;
+	background: url(import.png) no-repeat 250px 0 #f1faf3;
+	color: #37ba65;
+	top: 20px;
+	font-size: 14px;
+	position: relative;
+}
+
+#precise{
+	float: left;
+	width: 210px;
+	position: relative;
+	text-align: right;
+	top: 28px;
+	left: 10px;
+	
+}
+
+#files{
+	margin: 0px;
+	padding: 0px;
+	float: right;
+	position: relative;
+	top: 28px;
+	right: 20px;
+	width: 220px;
+	list-style-type: none;
+	text-align: right;
+}
+
+#inputfile{
+	border: 2px solid #2c9950;
+	width: 200px;
+	position: relative;
+	top: 30px;
+	height: 20px;
+	border-radius: 20px;
+	margin: auto;
+	background-color: #f1faf3;
+	font-size: 13px;
+	text-align: center;
+	padding-top: 3px;
+}
+
+#barre{
+	width: 500px;
+	height: 20px;
+	border: 2px solid #2c9950;
+	margin: auto;
+	position: relative;
+	top: 50px;
+	background-color: #f2faf4;
+	border-radius: 20px;
+}
+
+#progress{
+	height: 20px;
+	width: 100px;
+	background-color: rgba(255, 0, 0, 0.75);
+	border-radius: 20px;
+	-moz-box-shadow: 2px 0 0 rgba(44, 153, 80, 0.83);
+	-webkit-box-shadow: 2px 0 0 rgba(44, 153, 80, 0.83);
+	box-shadow: 2px 0 0 rgba(44, 153, 80, 0.83);
+}
+
+#état{
+	position: relative;
+	font-size: 12px;
+	top: 50px;
+	color: #fb3e3d;
+}
+
+.soon{
+	font-size: 12px;
+	position: relative;
+	top: 50px;
+}

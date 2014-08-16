@@ -1,0 +1,81 @@
+html
+  height 100%
+  background-color #f2faf4
+  color #2c9950
+  font-family "Verdana", Helvetica, Arial, sans-serif
+
+body
+  margin 0
+
+header
+  height 75px
+  background-color #4abb5b
+  border-bottom 2px solid #2c9950
+
+#logo
+  position absolute
+  left 20px
+  top 4px
+  z-index 1
+
+form
+  width 700px
+  margin auto
+  margin-top 40px
+  border 2px solid #2c9950
+  border-radius 15px
+  background-color rgba(73, 187, 91, 0.16)
+  padding 10px
+
+h1
+  margin 0
+  text-align center
+
+.line
+  width 100%
+  margin 10px 0
+
+label, .desc
+  display inline-block
+  width 130px
+  text-align right
+  padding 3px 0
+  vertical-align top
+  margin-right 10px
+  font-weight bold
+
+input[type="text"], input[type="password"]
+  vertical-align top
+  background-color #f2faf4
+  border-radius 15px
+  border 2px solid #2c9950
+  padding 3px 3px 3px 10px
+  color #2c9950
+  width 160px
+  &:focus
+    -moz-box-shadow 0 0 6px #4abb5b inset
+    -webkit-box-shadow 0 0 6px #4abb5b inset
+    box-shadow 0 0 6px #4abb5b inset
+  &.invalid
+    border 2px solid #ed0000
+    color #ed0000
+
+.description
+  display inline-block
+  width 300px
+  margin-left 10px
+
+.entropy_description
+  width 493px
+
+.submit_line
+  text-align center
+
+input[type="submit"]
+  width 120px
+  padding 3px 3px 4px
+  background-color #2c9950
+  border 0
+  border-radius 15px 15px 15px 15px
+  font-size 15px
+  color #f2faf4

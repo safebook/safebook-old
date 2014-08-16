@@ -1,0 +1,46 @@
+header
+  img#logo(src='logo.png', alt='Safebook logo')
+form
+  h1 Bienvenue !
+  .line
+    label(for="pseudo")
+      | Pseudo :
+    input#pseudo(type='text', name='pseudo', maxlength='32')
+    span.description
+      | Votre pseudo. Composé de 2 jusqu'à 32 caractères alphanumérique, ., - et _.
+  .line
+    label(for="email")
+      | E-mail :
+    input#email(type='text', name='email', maxlength='255')
+    span.description
+      | La validation finale du compte se déroulera dans votre boîte aux lettres !
+
+  .line
+    label(for="email")
+      | Mot de Passe :
+    input(type='password', name='password')
+    span.description
+      | Votre mot de passe. Le garant de votre sécurité. Minimum 8 caractères dont une minuscule, une majuscule et un chiffre. 
+      a(href="/passwords") Qu'est-ce qu'un bon mot de passe ?
+
+  .line
+    label(for="confirm")
+      | Confirmation :
+    input(type='password', name='confirm')
+    span.description
+      b Nous ne pouvons pas le renvoyer ! 
+      | Pas de fautes de frappes ? 
+      | Notez le quelque part, on ne sait jamais...
+
+  .line
+    .desc Entropie : 
+      span#entropy 0
+
+    span.description.entropy_description
+      | Sans 
+      a(href="#") entropie
+      | , pas de sécurité ! Essayez d'atteindre au moins 2500.  
+      a(href="#") Augmenter mon entropie
+
+  .line.submit_line
+    input(type="submit", value="S'inscrire")
