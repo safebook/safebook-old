@@ -1,0 +1,29 @@
+.row
+  .col-sm-3
+    h3
+      a(href="#")#options Options
+  .col-sm-3
+    | <% if (App.User.has('id')) { %>
+    h3
+      a(href="#")#logout Logout
+    | <% } %>
+
+.row
+  .col-sm-3
+    .row
+      h2.user.text-center
+        a#select_user(href="#") <%= App.User.get('pseudo') %>
+        | (<%= App.User.get('id') %>)
+      h4.pubkey.text-center <%= to_b64(App.User.get('shared')) %>
+    .row#users
+    .row#keys
+
+  .col-sm-6#messages
+
+  .col-sm-3
+    .row
+      h2.user.text-center <%= App.Dest.get('pseudo') %>(<%= App.Dest.get('id') %>)
+      h4.pubkey.text-center <%= to_b64(App.Dest.get('shared')) %>
+    .row
+      button(type="button").btn.btn-block.btn-success#add_user_key(href="#")
+        | Add a key
