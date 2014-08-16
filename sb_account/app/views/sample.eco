@@ -1,0 +1,11 @@
+<ul>
+  <li>Me</li>
+<% for circle in @data.circles: %>
+  <li>
+    <%= circle.name %>
+  </li>
+<% end%>
+<% for user in @data.users: %>
+  <li><%= user.pseudo %></li>
+<% end%>
+</ul>

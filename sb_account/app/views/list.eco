@@ -1,0 +1,5 @@
+<div id="me"></div>
+<div id="circles"></div>
+<button id="add_circle">Add circle</button>
+<div id="friends"></div>
+<button id="add_friend">Add friend</button>

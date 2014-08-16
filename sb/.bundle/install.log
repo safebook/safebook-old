@@ -1,0 +1,19 @@
+# Logfile created on 2013-12-31 04:12:16 +0100 by logger.rb/31641
+I, [2013-12-31T04:12:16.323727 #19563]  INFO -- : 0:  coffee-script-source (1.6.3) from /var/lib/gems/1.9.1/specifications/coffee-script-source-1.6.3.gemspec
+I, [2013-12-31T04:12:16.911985 #19563]  INFO -- : 0:  execjs (2.0.2) from /var/lib/gems/1.9.1/specifications/execjs-2.0.2.gemspec
+I, [2013-12-31T04:12:17.518929 #19563]  INFO -- : 0:  coffee-script (2.2.0) from /var/lib/gems/1.9.1/specifications/coffee-script-2.2.0.gemspec
+I, [2013-12-31T04:12:18.199226 #19563]  INFO -- : 0:  daemons (1.1.9) from /var/lib/gems/1.9.1/specifications/daemons-1.1.9.gemspec
+I, [2013-12-31T04:12:53.365474 #19563]  INFO -- : 0:  eventmachine (1.0.3) from /var/lib/gems/1.9.1/specifications/eventmachine-1.0.3.gemspec
+I, [2013-12-31T04:12:53.400672 #19563]  INFO -- : 0:  tilt (1.4.1) from /var/lib/gems/1.9.1/specifications/tilt-1.4.1.gemspec
+I, [2013-12-31T04:12:53.402689 #19563]  INFO -- : 0:  haml (4.0.4) from /var/lib/gems/1.9.1/specifications/haml-4.0.4.gemspec
+I, [2013-12-31T04:12:53.974679 #19563]  INFO -- : 0:  hike (1.2.3) from /var/lib/gems/1.9.1/specifications/hike-1.2.3.gemspec
+I, [2013-12-31T04:12:53.979701 #19563]  INFO -- : 0:  json (1.8.1) from /var/lib/gems/1.9.1/specifications/json-1.8.1.gemspec
+I, [2013-12-31T04:12:54.681859 #19563]  INFO -- : 0:  multi_json (1.8.2) from /var/lib/gems/1.9.1/specifications/multi_json-1.8.2.gemspec
+I, [2013-12-31T04:12:54.691479 #19563]  INFO -- : 0:  rack (1.5.2) from /var/lib/gems/1.9.1/specifications/rack-1.5.2.gemspec
+I, [2013-12-31T04:12:54.693369 #19563]  INFO -- : 0:  rack-protection (1.5.1) from /var/lib/gems/1.9.1/specifications/rack-protection-1.5.1.gemspec
+I, [2013-12-31T04:12:54.695338 #19563]  INFO -- : 0:  shotgun (0.9) from /var/lib/gems/1.9.1/specifications/shotgun-0.9.gemspec
+I, [2013-12-31T04:12:54.697107 #19563]  INFO -- : 0:  sinatra (1.4.4) from /var/lib/gems/1.9.1/specifications/sinatra-1.4.4.gemspec
+I, [2013-12-31T04:12:55.473346 #19563]  INFO -- : 0:  sprockets (2.10.1) from /var/lib/gems/1.9.1/specifications/sprockets-2.10.1.gemspec
+I, [2013-12-31T04:12:58.906598 #19563]  INFO -- : 0:  thin (1.6.1) from /var/lib/gems/1.9.1/specifications/thin-1.6.1.gemspec
+I, [2013-12-31T04:12:59.659034 #19563]  INFO -- : 0:  uglifier (2.4.0) from /var/lib/gems/1.9.1/specifications/uglifier-2.4.0.gemspec
+I, [2013-12-31T04:12:59.666554 #19563]  INFO -- : 0:  bundler (1.5.1) from /var/lib/gems/1.9.1/specifications/bundler-1.5.1.gemspec

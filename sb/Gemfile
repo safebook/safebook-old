@@ -1,0 +1,14 @@
+source :rubygems
+
+gem 'sinatra'
+
+gem 'haml'
+
+gem 'rack'
+gem 'thin'
+gem 'shotgun'
+
+# asset
+gem 'sprockets'
+gem 'coffee-script'
+gem 'uglifier'
