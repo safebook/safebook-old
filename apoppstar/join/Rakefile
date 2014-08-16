@@ -1,0 +1,14 @@
+task :coffee do
+  sh "coffee -j js/join.js -cw coffee/* &"
+end
+
+task :up do
+  sh "rackup -p 3000"
+end
+
+task :default => [:coffee, :up] do
+end
+
+task :run => [:coffee, :up] do
+  sh "firefox 0.0.0.0:3000"
+end

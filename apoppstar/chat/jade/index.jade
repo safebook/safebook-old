@@ -1,0 +1,51 @@
+mixin loadTemp
+  #content
+    p Welcome, who are you ?
+    input#pseudo
+    p Let randomness warm up !
+    a(href="#")#hash_file Hash a file
+    p Randomness = 
+      span#randomness 0
+    a#start(href="#") >> start the chat
+    input#file(type="file", style="display:none")
+
+mixin chatTemp
+  #content
+    textarea
+    button Send
+    #messages
+      .msg_app Welcome. your chat url <%= location.origin + '/' + room %>
+
+mixin askTemp
+  p <%= pseudo %> asked
+  a.accept(href="#") accept
+
+mixin msgTemp
+  p#msg <%= pseudo %>: <%= msg %>
+
+doctype 5
+html(lang="fr")
+  head
+    title=Safebook
+
+    link(rel="stylesheet", href="main.css")
+
+    script(src="js/sjcl.js")
+    script(src="js/safebook.js")
+    script(src="js/zepto.js")
+    script(src="js/underscore.js")
+    script(src="js/backbone.js")
+    script(src="js/socket.js")
+    script(src="js/chat.js")
+
+    script#loadTemp(type="text/template")
+      +loadTemp()
+    script#chatTemp(type="text/template")
+      +chatTemp()
+    script#msgTemp(type="text/template")
+      +msgTemp()
+    script#askTemp(type="text/template")
+      +askTemp()
+
+  body
+    p Not loaded yet... Check if javascript is enabled

@@ -1,0 +1,20 @@
+{
+  "name": "safebook-chat",
+  "version": "0.1.0",
+  "author": "Maxime Lalisse, Arjuna Popp <contact@safebook.fr>",
+  "description": "An encrypted chat",
+  "scripts": {
+    "start": "coffee ./server.coffee"
+  },
+  "dependencies": {
+    "stylus": "*",
+    "jade": "*",
+    "coffee-script": "1.6.x",
+    "express": "3.4.x",
+    "socket.io": "0.9.x"
+  },
+  "licence": "GPLv2",
+  "engines": {
+    "node": "0.10.20"
+  }
+}

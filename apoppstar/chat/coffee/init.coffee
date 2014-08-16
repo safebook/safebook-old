@@ -1,0 +1,2 @@
+$ ->
+  View = new LoadView()

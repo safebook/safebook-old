@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<head>
+			<meta charset="utf-8" />
+			<title>Safebook-Inscription</title>
+
+			<link rel="stylesheet" href="index.css" />
+
+      <script src="js/sjcl.js"></script>
+      <script src="js/zepto.js"></script>
+      <script src="js/underscore.js"></script>
+      <script src="js/backbone.js"></script>
+      <script src="js/safebook.js"></script>
+      <script src="js/join.js"></script>
+		</head>
+
+		<header>
+			<div id="center">
+				<img src="logo.png" alt="Safebook logo" class="logo-safebook"/>
+			</div>
+		</header>
+		
+    <div class="strut"></div><!--
+   --><div class="body">
+        <div id="content">
+          <h2 class="titre">Ouverture</h2>
+
+          <span class="thisis">Pseudo</span>
+          <input type="text" id="pseudo" />
+          <span class="description">
+            Jusqu'a 10 caractères.
+          </span>
+
+          <span class="thisis">E-mail</span>
+          <input type="text" id="email" />
+          <span class="description">
+            La validation finale du compte se déroulera dans votre boîte aux lettres !
+          </span>
+
+          <span class="thisis">Mot de Passe</span>
+          <input type="password" id="password" />
+          <span class="description">
+            Vous êtes le seul à le connaître (même pas nous). Il est le garant de votre sécurité. Il faut qu'il soit <b>long</b> (entre 8 et 12 caractère), <b>rare</b> (pas de mot du dico), <b>fort</b> (majuscules, minuscules, chiffres, ?!$% et Cie) et <b>unique</b> (ne le rentrez jamais sur un autre site). 
+          </span>
+
+          <span class="thisis">Confirmation</span>
+          <input type="password" id="confirm" />
+          <span class="description">
+            Pas de fautes de frappes ? Pour des raison de sécurité nous ne pouvons ni vous le renvoyer, ni le réinitialer donc <b>ne l'oubliez surtout pas</b>. Notez le quelque part. On ne sait jamais...
+          </span>
+
+          <span class="thisis"><b>Entropie</b></span>
+          <span id="entropy">0</span>
+          <span class="description">
+            Vous êtes encouragé à augmenter votre entropie pour un maximum de sécurité. <a href="#" id="eat">Eat a file</a> pour récuperer 64 octet (voir <a href="#">sha512</a>)
+          </span>
+          <input type="file" id="input_file" style="display:none" />
+
+          <a id="to_2" href="#" class="next">S'inscrire</a>
+        </div>
+			</div>
+		</div>
+		
+		
+	</body>
+</html>
