@@ -1,0 +1,35 @@
+Safebook-chat
+=============
+Chatrooms chiffree
+
+UTILISATION
+===========
+Rejoindre l'URL. Choisissez un pseudo. Il est conseille d'augmenter un peu son entropie avec des mouvements de souris / clavier et/ou avec des fichiers PERSO. Car sans donnees pseudo-aleatoires de bonne qualite, pas de securite.
+
+Ensuite, partagez le liens et accepter le ou les arrivant que vous connaissez. Il est conseiller de les tester un peu pour etre sur :)
+Si on vous a envoyer le liens, attendez de voir "You'r now in" (l'hote doit vous accepter).
+
+INTERNE
+=======
+Chaque utilisateur cree une cle privee et une cle publique (sur une courbe elliptique). L'hote cree aussi une cle pour la salle.
+
+Quant un utilisateur rejoint le chat il envoi sa cle publiaue et connait la cle de l'hote.
+Tout les deux obtienne une cle commune (via ECDH) et partage la cle de la salle.
+
+Enfin, tout le monde utilise la cle que l'hote a cree. (crypto symetrique)
+
+DEV
+===
+Si vous etes root
+
+npm install -g coffee-script
+coffee server.coffee
+
+Sinon
+
+npm install
+./node_modules/coffee-script/bin/coffee server.coffee
+
+BUGS CONNU
+==========
+Le transfert de fichier ne fonctionne qu'une fois et que sur firefox

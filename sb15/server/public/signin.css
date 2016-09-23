@@ -1,0 +1,40 @@
+body{
+	font-family : "Verdana", Helvetica, Arial, sans-serif;
+	background-color: #f2faf4;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+}
+
+header{
+	background-color: #4abb5b;
+	border-bottom: 2px solid #2c9950;
+	width:  100%;
+}
+
+#logo{
+	margin-left: 40px;
+	margin-bottom: -15px;
+}
+
+#signin {
+	background-color: rgba(73, 187, 91, 0.16);
+	box-shadow: rgba(0, 0, 0, 0.3) 3px 3px 3px 3px;
+	width: 25%;
+	margin: auto;
+	margin-top: 100px;
+}
+
+#form {
+	margin: auto;
+	text-align: center;
+	/*vertical-align: middle;*/
+}
+
+input, button {
+	width: 60%;
+	margin: 5px;
+	text-align: center;
+}
+
+

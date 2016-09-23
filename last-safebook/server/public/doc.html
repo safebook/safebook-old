@@ -1,0 +1,223 @@
+    <section class="suite">
+      <h1>api</h1>
+      <dl>
+        <section class="suite">
+          <h1>users</h1>
+          <dl>
+            <section class="suite">
+              <h1>#create</h1>
+              <dl>
+                <dt>work if user is valid</dt>
+                <dd><pre><code>return request(url).post('/users').send(random_user()).expect(201).end(done);</code></pre></dd>
+                <dt>fail if no pseudo</dt>
+                <dd><pre><code>var tuser;
+tuser = random_user();
+delete tuser.pseudo;
+return request(url).post('/users').send(tuser).expect(401).end(done);</code></pre></dd>
+                <dt>fail if pseudo is not unique</dt>
+                <dd><pre><code>var tuser, tuser2;
+tuser = random_user();
+tuser2 = random_user({
+  pseudo: tuser.pseudo
+});
+return request(url).post('/users').send(tuser).expect(201).end(function() {
+  return request(url).post('/users').send(tuser2).expect(401).end(done);
+});</code></pre></dd>
+                <dt>fails if pubkey is not unique</dt>
+                <dd><pre><code>var tuser, tuser2;
+tuser = random_user();
+tuser2 = random_user({
+  pubkey: tuser.pubkey
+});
+return request(url).post('/users').send(tuser).expect(201).end(function() {
+  return request(url).post('/users').send(tuser2).expect(401).end(done);
+});</code></pre></dd>
+                <dt>work only if pseudo length is between 2 and 16</dt>
+                <dd><pre><code>var tuser1, tuser16, tuser17, tuser2;
+tuser1 = random_user({
+  pseudo: '1'
+});
+tuser2 = random_user({
+  pseudo: '12'
+});
+tuser16 = random_user({
+  pseudo: '1234567890123456'
+});
+tuser17 = random_user({
+  pseudo: '12345678901234567'
+});
+return request(url).post('/users').send(tuser1).expect(401).end(function() {
+  return request(url).post('/users').send(tuser2).expect(201).end(function() {
+    return request(url).post('/users').send(tuser16).expect(201).end(function() {
+      return request(url).post('/users').send(tuser17).expect(401).end(done);
+    });
+  });
+});</code></pre></dd>
+              </dl>
+            </section>
+            <section class="suite">
+              <h1>#login</h1>
+              <dl>
+                <dt>fail if login password is invalid</dt>
+                <dd><pre><code>var login_fail;
+login_fail = _.pick(login, 'pseudo');
+login_fail.password = &quot;bad password&quot;;
+return request(url).put('/users').send(login_fail).expect(401).end(done);</code></pre></dd>
+                <dt>work if login is valid</dt>
+                <dd><pre><code>return request(url).put('/users').send(login).expect(200).end(done);</code></pre></dd>
+                <dt>return the full user</dt>
+                <dd><pre><code>return request(url).put('/users').send(login).expect(200).expect(_.omit(user, 'password')).end(done);</code></pre></dd>
+              </dl>
+            </section>
+            <section class="suite">
+              <h1>#read</h1>
+              <dl>
+                <dt>fail if the user isnt logged</dt>
+                <dd><pre><code>return request(url).get('/users/' + user.id).expect(401).end(done);</code></pre></dd>
+                <dt>fail if the user failed to log</dt>
+                <dd><pre><code>var login_fail;
+login_fail = _.pick(user, 'pseudo');
+login_fail.password = &quot;bad password&quot;;
+return request(url).put('/users').send(login_fail).expect(401).end(function(err, res) {
+  var cookie;
+  if (err) {
+    throw err;
+  }
+  cookie = res.headers['set-cookie'];
+  return request(url).get('/users/' + user.id).set('cookie', cookie).expect(401).end(done);
+});</code></pre></dd>
+                <dt>work and get only the restricted values if user is logged</dt>
+                <dd><pre><code>return request(url).put('/users').send(login).expect(200).end(function(err, res) {
+  var cookie;
+  if (err) {
+    throw err;
+  }
+  cookie = res.headers['set-cookie'];
+  return request(url).get('/users/' + user.id).set('cookie', cookie).expect(200).expect(public_user).end(done);
+});</code></pre></dd>
+              </dl>
+            </section>
+          </dl>
+        </section>
+        <section class="suite">
+          <h1>Keys</h1>
+          <dl>
+            <section class="suite">
+              <h1>#create</h1>
+              <dl>
+                <dt>work if user and dest are valid</dt>
+                <dd><pre><code>return request(url).put('/users').send(login).expect(200).end(function(err, res) {
+  var cookie, key;
+  if (err) {
+    throw err;
+  }
+  cookie = res.headers['set-cookie'];
+  key = random_key({
+    dest_id: user2.id
+  });
+  return request(url).post('/keys').set('cookie', cookie).send(key).expect(200).end(done);
+});</code></pre></dd>
+                <dt>fail unless logged</dt>
+                <dd><pre><code>var key;
+key = random_key({
+  dest_id: user2.id
+});
+return request(url).post('/keys').send(key).expect(401).end(done);</code></pre></dd>
+                <dt>dont work if dest is invalid</dt>
+                <dd><pre><code>return request(url).put('/users').send(login).expect(200).end(function(err, res) {
+  var cookie, key;
+  if (err) {
+    throw err;
+  }
+  cookie = res.headers['set-cookie'];
+  key = random_key({
+    dest_id: random_user().id
+  });
+  return request(url).post('/keys').set('cookie', cookie).send(key).expect(401).end(done);
+});</code></pre></dd>
+              </dl>
+            </section>
+          </dl>
+        </section>
+        <section class="suite">
+          <h1>Messages</h1>
+          <dl>
+            <section class="suite">
+              <h1>#create</h1>
+              <dl>
+                <dt>fail unless logged</dt>
+                <dd><pre><code>var message;
+message = random_message({
+  key_id: random_key().id
+});
+return request(url).post('/messages').send(message).expect(401).end(done);</code></pre></dd>
+                <dt>fail unless linked to a valid key</dt>
+                <dd><pre><code>return request(url).put('/users').send(login).expect(200).end(function(err, res) {
+  var cookie, message;
+  if (err) {
+    throw err;
+  }
+  cookie = res.headers['set-cookie'];
+  message = random_message({
+    key_id: random_key().id
+  });
+  return request(url).post('/messages').send(message).expect(401).end(done);
+});</code></pre></dd>
+                <dt>work if user and key are valid (with the key creator)</dt>
+                <dd><pre><code>return request(url).put('/users').send(login).expect(200).end(function(err, res) {
+  var cookie, key;
+  if (err) {
+    throw err;
+  }
+  cookie = res.headers['set-cookie'];
+  key = random_key({
+    dest_id: user2.id
+  });
+  return request(url).post('/keys').set('cookie', cookie).send(key).expect(200).end(function(err, res) {
+    if (err) {
+      throw err;
+    }
+    return request(url).put('/users').send(login2).expect(200).end(function(err, res) {
+      var message;
+      if (err) {
+        throw err;
+      }
+      message = random_message({
+        key_id: key.id
+      });
+      return request(url).post('/messages').set('cookie', cookie).send(message).expect(200).end(done);
+    });
+  });
+});</code></pre></dd>
+                <dt>work if user and key are valid (with the key possessor)</dt>
+                <dd><pre><code>return request(url).put('/users').send(login).expect(200).end(function(err, res) {
+  var cookie, key;
+  if (err) {
+    throw err;
+  }
+  cookie = res.headers['set-cookie'];
+  key = random_key({
+    dest_id: user2.id
+  });
+  return request(url).post('/keys').set('cookie', cookie).send(key).expect(200).end(function(err, res) {
+    if (err) {
+      throw err;
+    }
+    return request(url).put('/users').send(login2).expect(200).end(function(err, res) {
+      var message;
+      if (err) {
+        throw err;
+      }
+      message = random_message({
+        key_id: key.id
+      });
+      return request(url).post('/messages').set('cookie', cookie).send(message).expect(200).end(done);
+    });
+  });
+});</code></pre></dd>
+              </dl>
+            </section>
+          </dl>
+        </section>
+      </dl>
+    </section>

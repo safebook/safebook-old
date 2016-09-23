@@ -1,0 +1,56 @@
+mixin template(tid)
+  script(id=tid+"Temp", type="text/template")
+    block
+
+doctype 5
+html(lang="fr")
+  head
+    title=Safebook
+
+    link(rel="stylesheet", href="main.css")
+
+    script(src="js/sjcl.js")
+    script(src="js/safebook.js")
+    script(src="js/zepto.js")
+    script(src="js/underscore.js")
+    script(src="js/backbone.js")
+    script(src="js/socket.js")
+    script(src="js/chat.js")
+
+    +template("load")
+      #content
+        p Welcome, who are you ?
+        input#pseudo
+        p Let randomness warm up !
+        a(href="#")#hash_file Hash a file for more
+        p Randomness = 
+          span#randomness 0
+        a#start(href="#") >> start the chat
+        input#file(type="file", style="display:none")
+
+    +template("chat")
+      #content
+        textarea
+        input#file(type="file")
+        #messages
+          .msg_app Welcome. your chat url <%= location.origin + '/' + room %>
+
+    +template("msg")
+      p#msg <%- pseudo %>: <%- msg %>
+
+    +template("ask")
+      p <%- pseudo %> asked
+      a.accept(href="#") accept
+
+    +template("upFile")
+      p Uploading <%- name %> (<%= done %>/<%= size %>B) <%= Math.floor(100*done/size) %>%
+
+    +template("dlFile")
+      <% if (finished == false) { %>
+      p Downloading <%- name %> (<%= done %>/<%= size %>B) <%= Math.floor(100*done/size) %>%
+      <% } else { %>
+      a(href="#") Download <%- name %>
+      <% } %>
+
+  body
+    p Not loaded yet... Check if javascript is enabled

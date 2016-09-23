@@ -1,0 +1,24 @@
+spawn = require('child_process').spawn
+fs    = require 'fs'
+
+sh = (cmd, options) ->
+  child = spawn cmd, options
+  child.stdout.on 'data', (data) -> process.stdout.write cmd + ':' + data
+  child.stderr.on 'data', (data) -> process.stderr.write cmd + ':' + data
+  child.on 'error', (data) -> console.log data
+  child.on 'close', (code) -> console.log "child #{cmd} closed (#{code})"
+  child
+
+files = ["entropy", "hash_file", "globals", "loadView", "msgView", "upFileView", "dlFileView", "askView", "chatView", "init"]
+files = files.map (name) -> "coffee/" + name + ".coffee"
+
+task 'build', ->
+  sh './node_modules/jade/bin/jade', ['-o', 'src', '-w', 'jade/index.jade']
+  sh './node_modules/stylus/bin/stylus', ['-o', 'src', '-w', 'styl/main.styl']
+  sh './node_modules/coffee-script/bin/coffee', ['-j', 'src/js/chat.js', '-cw'].concat files
+
+task 'server', ->
+  server = sh './node_modules/coffee-script/bin/coffee', ['server.coffee']
+  fs.watch 'server.coffee', ->
+    server.kill() if server
+    server = sh './node_modules/coffee-script/bin/coffee', ['server.coffee']

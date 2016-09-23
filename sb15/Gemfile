@@ -1,0 +1,16 @@
+source :rubygems
+
+gem 'rack'
+gem 'sinatra'
+
+gem 'thin'
+gem 'shotgun'
+
+gem 'sqlite'
+
+#gem 'haml'
+
+# asset
+gem 'sprockets'
+gem 'coffee-script'
+gem 'uglifier'

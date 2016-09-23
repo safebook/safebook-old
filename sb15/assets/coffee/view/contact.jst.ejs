@@ -1,0 +1,17 @@
+<ul id="contacts">
+<% for (var i = 0; i < contacts.length; i++) { %>
+  <li><%= contacts[i].pseudo %></li>
+<% } %>
+</ul>
+<input id="friend" />
+<button id="add">Add</button>
+<ul id="messages">
+<% for (var i = 0; i < msgs.length; i++) { %>
+  <li><%= Contact.find(msgs[i].user_id).pseudo + ': ' + msgs[i].value %></li>
+<% } %>
+</ul>
+<input id="message" />
+<div id="shared" style="display:none">
+<%= Key.export() %>
+</div>
+<button id="send">Add</button>
