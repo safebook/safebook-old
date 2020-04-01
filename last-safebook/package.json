@@ -23,7 +23,7 @@
     "grunt-shell": "~0.6.4",
     "mocha": "~1.17.1",
     "supertest": "~0.9.0",
-    "lodash": "~2.4.1",
+    "lodash": "~4.17.15",
     "grunt-contrib-jade": "~0.10.0",
     "sjcl-full": "~1.0.0"
   }
